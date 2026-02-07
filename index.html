@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./loveTruck.css">
+    <link rel="stylesheet" href="./envelope.css">
+    <title>To my love 💖 | webkaizen</title>
+</head>
+<body>
+    <!-- Added onclick event to the envelope container -->
+    <div class="envelope-container" onclick="openCard()">
+        <div class="envelope">
+            <div class="envelope__tab"></div>
+            <div class="envelope__letter">
+                <!-- Short preview text inside the small envelope -->
+                <p>Happy Rose Day, Anushka 🌹<br><br> (Click to read more...)</p>
+            </div>
+            <div class="envelope--base"></div> 
+        </div>
+    </div>
+
+    <!-- Hidden full text source -->
+    <div id="full-message" style="display: none;">
+        <p>Happy Rose Day, Anushka 🌹<br><br>
+        You have this weird talent of living in my head rent-free and making me smile for no reason. One text from you can fix my mood, and one smile from you can ruin my focus completely. Honestly, life feels more fun, softer, and way less boring with you around.<br><br>
+        ur sushant 😽</p>
+    </div>
+
+    <div class="truck-container">
+        <div class="container">
+            <div class="ts">
+           <div class="box"></div>
+            <div class="front">
+                
+                <div class="light"></div>
+                <div class="trapezoid"></div>
+                <div class="pipe"></div>
+                <div class="pipe2"></div>
+                <img class="img1" src="https://i.gifer.com/5zoP.gif">
+                <img class="img2" src="https://i.gifer.com/5zoP.gif">
+                <img class="img3" src="https://i.gifer.com/5zoP.gif">
+                <img class="img4" src="https://i.gifer.com/5zoP.gif">
+                <img class="img5" src="https://i.gifer.com/5zoP.gif">
+                <img class="img6" src="https://i.gifer.com/5zoP.gif">
+                <img class="img7" src="https://i.gifer.com/5zoP.gif">
+                <img class="img8" src="https://i.gifer.com/5zoP.gif">
+                <img class="img9" src="https://i.gifer.com/5zoP.gif">
+                <img class="img10" src="https://i.gifer.com/5zoP.gif">
+                <img class="img11" src="https://i.gifer.com/5zoP.gif">
+                <div class="front1"></div>
+                <div class="front2"></div>
+                <div class="window"></div>
+                 <div class="hood"></div>    
+            </div>
+             <div class="tyre1">
+                <div class="r1"></div>
+                <div class="r2"></div>
+                <div class="r3"></div>
+                <div class="r4"></div>
+                <div class="r5"></div>
+                <div class="r6"></div>
+             </div>
+             <div class="tyre2">
+                <div class="r1"></div>
+                <div class="r2"></div>
+                <div class="r3"></div>
+                <div class="r4"></div>
+                <div class="r5"></div>
+                <div class="r6"></div>
+             </div>
+             <div class="tyre3">
+                <div class="r1"></div>
+                <div class="r2"></div>
+                <div class="r3"></div>
+                <div class="r4"></div>
+                <div class="r5"></div>
+                <div class="r6"></div>
+             </div>
+             <div class="tyre4">
+                <div class="r1"></div>
+                <div class="r2"></div>
+                <div class="r3"></div>
+                <div class="r4"></div>
+                <div class="r5"></div>
+                <div class="r6"></div>
+             </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isOpened = false;
+
+        function openCard() {
+            if (isOpened) return;
+            isOpened = true;
+
+            // 1. Create the overlay background
+            const overlay = document.createElement('div');
+            overlay.classList.add('letter-overlay');
+            
+            // 2. Create the content box (Paper)
+            const content = document.createElement('div');
+            content.classList.add('letter-overlay-content');
+            
+            // 3. Get the full message
+            const fullMessage = document.getElementById('full-message').innerHTML;
+            content.innerHTML = fullMessage;
+            
+            // 4. Assemble and add to body
+            overlay.appendChild(content);
+            document.body.appendChild(overlay);
+
+            // 5. Start falling roses
+            startRoses();
+        }
+
+        function startRoses() {
+            setInterval(createRose, 300);
+        }
+
+        function createRose() {
+            const rose = document.createElement('div');
+            rose.innerText = '🌹';
+            rose.classList.add('rose');
+            
+            rose.style.left = Math.random() * 100 + 'vw';
+            rose.style.animationDuration = Math.random() * 2 + 3 + 's';
+            rose.style.fontSize = Math.random() * 1.5 + 1.5 + 'rem';
+            
+            document.body.appendChild(rose);
+
+            setTimeout(() => {
+                rose.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
